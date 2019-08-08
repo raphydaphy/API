@@ -527,6 +527,13 @@ public interface IRenderer extends IDisposable {
     void calcScales();
 
     /**
+     * Recalculates the world scale. This is an internal method that should
+     * not be called by modders.
+     */
+    @ApiInternal
+    void recalculateWorldScale();
+
+    /**
      * Gets the display's ratio as a float. For example, if the window's current
      * display ratio was 16/9, that is the value that this method would return.
      *

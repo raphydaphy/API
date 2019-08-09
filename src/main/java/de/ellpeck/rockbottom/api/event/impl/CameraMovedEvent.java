@@ -1,5 +1,5 @@
 /*
- * This file ("MakeCameraCoordsEvent.java") is part of the RockBottomAPI by Ellpeck.
+ * This file ("CameraMovedEvent.java") is part of the RockBottomAPI by Ellpeck.
  * View the source code at <https://github.com/RockBottomGame/>.
  * View information on the project at <https://rockbottom.ellpeck.de/>.
  *
@@ -24,22 +24,21 @@ package de.ellpeck.rockbottom.api.event.impl;
 import de.ellpeck.rockbottom.api.IGameInstance;
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
 import de.ellpeck.rockbottom.api.event.Event;
+import de.ellpeck.rockbottom.api.render.Camera;
 
 /**
  * This event is fired every tick when the renderer decides what to center the
- * camera on. By default, it gets centered on the {@link
- * IGameInstance#getPlayer()}'s position, but you can change the values using
+ * camera on. By default, it gets centered on {@link Camera#getLerpedX()} by
+ * {@link Camera#getLerpedY()} position, but you can change the values using
  * this event. It cannot be cancelled.
  */
-public final class MakeCameraCoordsEvent extends Event {
+public final class CameraMovedEvent extends Event {
 
     public final AbstractEntityPlayer player;
-    public double cameraX;
-    public double cameraY;
+    public final Camera camera;
 
-    public MakeCameraCoordsEvent(AbstractEntityPlayer player, double cameraX, double cameraY) {
+    public CameraMovedEvent(AbstractEntityPlayer player, Camera camera) {
         this.player = player;
-        this.cameraX = cameraX;
-        this.cameraY = cameraY;
+        this.camera = camera;
     }
 }

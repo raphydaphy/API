@@ -27,6 +27,7 @@ import de.ellpeck.rockbottom.api.assets.texture.ITexture;
 import de.ellpeck.rockbottom.api.event.impl.TooltipEvent;
 import de.ellpeck.rockbottom.api.gui.container.ItemContainer;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
+import de.ellpeck.rockbottom.api.render.Camera;
 import de.ellpeck.rockbottom.api.render.engine.*;
 import de.ellpeck.rockbottom.api.util.ApiInternal;
 import de.ellpeck.rockbottom.api.util.Util;
@@ -296,6 +297,11 @@ public interface IRenderer extends IDisposable {
      * #setProgram(IShaderProgram)}
      */
     IShaderProgram getProgram();
+
+    /**
+     * @return The renderer's current camera
+     */
+    Camera getCamera();
 
     /**
      * Sets the {@link IShaderProgram} that the renderer should use to draw.

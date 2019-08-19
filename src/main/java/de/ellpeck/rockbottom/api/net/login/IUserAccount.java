@@ -12,5 +12,7 @@ public interface IUserAccount {
     boolean isValid();
     boolean renew();
 
+    boolean changePassword(String oldPassword, String newPassword);
+
     void cache();
 }

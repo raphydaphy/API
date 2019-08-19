@@ -32,6 +32,7 @@ import de.ellpeck.rockbottom.api.entity.player.IInteractionManager;
 import de.ellpeck.rockbottom.api.gui.IGuiManager;
 import de.ellpeck.rockbottom.api.mod.IMod;
 import de.ellpeck.rockbottom.api.net.chat.IChatLog;
+import de.ellpeck.rockbottom.api.net.login.IUserAccount;
 import de.ellpeck.rockbottom.api.particle.IParticleManager;
 import de.ellpeck.rockbottom.api.render.IPlayerDesign;
 import de.ellpeck.rockbottom.api.toast.IToaster;
@@ -116,6 +117,23 @@ public interface IGameInstance extends IMod {
      * @throws UnsupportedOperationException on the dedicated server
      */
     AbstractEntityPlayer getPlayer();
+
+    /**
+     * Gets the currently logged in {@link IUserAccount}. This is not supported
+     * on the dedicated server since there is no account;
+     *
+     * @return The account, or null if no account is logged in
+     * @throws UnsupportedOperationException on the dedicated server
+     */
+    IUserAccount getAccount();
+
+    /**
+     * Sets the currently logged in account.
+     *
+     * @param account The account to login as
+     * @throws UnsupportedOperationException on the dedicated server
+     */
+    void loginAs(IUserAccount account);
 
     /**
      * Gets the {@link IGuiManager} of the current game instance. This can be

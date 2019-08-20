@@ -232,6 +232,15 @@ public interface IGameInstance extends IMod {
      */
     UUID getDefaultUniqueId();
 
+    /**
+     * Generates a server token which should be used to connect to a multiplayer
+     * server. Generating a new token will cause any previously generated
+     * tokens to become invalid
+     * @return The player's server token
+     * @throws UnsupportedOperationException on the dedicated server
+     */
+    UUID getServerToken();
+
     @ApiInternal
     int getTpsAverage();
 

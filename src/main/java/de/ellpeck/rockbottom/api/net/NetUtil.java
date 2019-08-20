@@ -66,7 +66,7 @@ public final class NetUtil {
         return new String(chars);
     }
 
-    public static void writeUUIDToBuffer(ByteBuf buf, UUID uuid) {
+    public static void writeUUIDToBuffer(UUID uuid, ByteBuf buf) {
     	buf.writeLong(uuid.getMostSignificantBits());
     	buf.writeLong(uuid.getLeastSignificantBits());
 	}

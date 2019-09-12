@@ -21,11 +21,11 @@
 
 package de.ellpeck.rockbottom.api;
 
+import de.ellpeck.rockbottom.api.tile.TileTallPlant;
 import de.ellpeck.rockbottom.api.tile.state.BoolProp;
 import de.ellpeck.rockbottom.api.tile.state.EnumProp;
 import de.ellpeck.rockbottom.api.tile.state.IntProp;
 import de.ellpeck.rockbottom.api.tile.state.TileProp;
-import de.ellpeck.rockbottom.api.tile.TileTallPlant;
 
 /**
  * A list of static {@link TileProp} objects that are used for certain tiles
@@ -99,6 +99,20 @@ public final class StaticTileProps {
      * GameContent#TILE_STARDROP}
      */
     public static final IntProp STARDROP_GROWTH = new IntProp("growth", 0, 3);
+    /**
+     * Determines if a tile has ladder inside of it. Used by {@link
+     * GameContent#TILE_PLATFORM}
+     */
+    public static final BoolProp HAS_LADDER = new BoolProp("has_ladder", false);
+    /**
+     * Determines which corners of a tile have been chiseled.
+     * The chiseled corner is represented by the bit of the 16 different values.
+     * Bit 0 - Top Left
+     * Bit 1 - Top Right
+     * Bit 2 - Bottom Left
+     * Bit 3 - Bottom Right
+     */
+    public static final IntProp CHISEL_STATE = new IntProp("chisel_state", 0, 15);
 
     /**
      * An enum of log types that are used for the {@link #LOG_VARIANT}
